@@ -1,0 +1,16 @@
+package envpolicy
+
+default allow = false
+
+allow if {
+  input.env == "dev"
+}
+
+allow if {
+  input.env == "prod"
+  input.role == "admin"
+}
+
+deny_reason := "Only admin allowed in production" if {
+  not allow
+}

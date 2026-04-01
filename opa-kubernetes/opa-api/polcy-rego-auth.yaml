@@ -1,0 +1,16 @@
+package auth
+
+default allow = false
+
+allow if {
+  input.role == "admin"
+}
+
+allow if {
+  input.user == "nita"
+  input.action == "read"
+}
+
+deny_reason := "Access denied: insufficient permission" if {
+  not allow
+}

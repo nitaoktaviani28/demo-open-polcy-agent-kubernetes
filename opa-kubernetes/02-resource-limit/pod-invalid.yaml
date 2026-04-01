@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: no-limit
+  labels:
+    team: devops
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.25
+      resources: {}
